@@ -10,7 +10,8 @@
                 </div>
                 <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><router-link to="/">Home <span class="sr-only">(current)</span></router-link></li>
+                        <li :class="$route.name == 'home'?'active':''"><router-link to="/">Home <span class="sr-only">(current)</span></router-link></li>
+                        <li><router-link :to="{ name: 'outlets.data' }">Outlets</router-link></li>
                         <li><a href="#">Link</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
