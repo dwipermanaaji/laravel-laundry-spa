@@ -3,11 +3,14 @@ import Router from 'vue-router';
 import Home from './pages/Home.vue';
 import Login from './pages/Login.vue';
 import store from './store.js';
-import indexOutlet from './pages/outlets/Index.vue';
-import dataOutlet from './pages/outlets/Outlet.vue';
-import addOutlet from './pages/outlets/Add.vue';
-import editOutlet from './pages/outlets/Edit.vue';
 
+import IndexOutlet from './pages/outlets/Index.vue';
+import DataOutlet from './pages/outlets/Outlet.vue';
+import AddOutlet from './pages/outlets/Add.vue';
+import EditOutlet from './pages/outlets/Edit.vue';
+
+import IndexCourier from './pages/couriers/Index.vue';
+import DataCourier from './pages/couriers/Courier.vue';
 
 Vue.use(Router);
 
@@ -27,13 +30,13 @@ const router = new Router({
         },
         {
             path:'/outlets',
-            component:indexOutlet,
+            component:IndexOutlet,
             meta:{requiresAuth:true},
             children:[
                 {
                     path:'',
                     name:'outlets.data',
-                    component:dataOutlet,
+                    component:DataOutlet,
                     meta:{
                         title:'Manage Outlets',
                     }
@@ -41,7 +44,7 @@ const router = new Router({
                 {
                     path:'add',
                     name:'outlets.add',
-                    component:addOutlet,
+                    component:AddOutlet,
                     meta:{
                         title:'Add New Outlet',
                     }
@@ -49,13 +52,29 @@ const router = new Router({
                 {
                     path:'edit/:id',
                     name:'outlets.edit',
-                    component:editOutlet,
+                    component:EditOutlet,
                     meta:{
                         title:'Edit Outlet'
                     }
                 }
             ]
         },
+        {
+            path:'/couriers',
+            component:IndexCourier,
+            meta:{requiresAuth:true},
+            children:[
+                {
+                    path:'',
+                    name:'couriers.data',
+                    component:DataCourier,
+                    meta:{
+                        title:'Manage Couriers'
+                    }
+                }
+            ]
+
+        }
     ],
 });
 
