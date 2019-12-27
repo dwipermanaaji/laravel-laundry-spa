@@ -13,7 +13,8 @@
                         <li :class="$route.name == 'home'?'active':''"><router-link to="/">Home <span class="sr-only">(current)</span></router-link></li>
                         <li><router-link :to="{ name: 'outlets.data' }">Outlets</router-link></li>
                         <li><router-link :to="{ name: 'couriers.data' }">Courier</router-link></li>
-                        <li><a href="#">Link</a></li>
+                        <li><router-link :to="{ name: 'products.data' }">Products</router-link></li>
+                        <!-- <li><a href="#">Link</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -25,7 +26,7 @@
                                 <li class="divider"></li>
                                 <li><a href="#">One more separated link</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
