@@ -39,6 +39,7 @@
 
 <script>
     import {mapActions, mapMutations, mapGetters, mapState } from 'vuex';
+    
     export default {
         data(){
             return{
@@ -67,6 +68,7 @@
                 'auth',
                 ['submit']
             ),
+            ...mapActions('user', ['getUserLogin']),
             ...mapMutations([
                 'CLEAR_ERRORS'
             ]),
@@ -78,6 +80,9 @@
                     }
                 });
             }
+        },
+        destroyed() {
+            this.getUserLogin()
         }
     }
 </script>

@@ -12,11 +12,28 @@ Vue.use(BootstrapVue)
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'sweetalert2/dist/sweetalert2.min.css';
 
+import Permissions from './mixins/permission.js'
+
+Vue.mixin(Permissions)
+
+import { mapActions, mapGetters } from 'vuex'
+
 new Vue({
     el: '#dw',
     router,
     store,
     components: {
         App
+    },
+    computed: {
+        ...mapGetters(['isAuth'])
+    },
+    methods: {
+        ...mapActions('user', ['getUserLogin'])
+    },
+    created() {
+        if (this.isAuth) {
+            this.getUserLogin() //REQUEST DATA YANG SEDANG LOGIN
+        }
     }
 })
